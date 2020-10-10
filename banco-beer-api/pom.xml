@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.beertech</groupId>
-	<artifactId>banco</artifactId>
+	<artifactId>banco-beer-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>banco</name>
 	<description>Demo project for BeertechTalents</description>
