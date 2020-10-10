@@ -30,7 +30,7 @@ public class ContaController {
     	return ResponseEntity.ok(null);
     }
 
-    @GetMapping(value = "/saldo")
+    @GetMapping(value = "/saldo", produces = "application/json")
     public ResponseEntity<String> getDataSaldo() throws JSONException {
     	 String saldo = "{ \"saldo\":"+ bancoService.getSaldo().toString() +"}";
         JSONObject respostaSaldo= new JSONObject(saldo);
