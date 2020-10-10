@@ -27,9 +27,9 @@ public class ContaController {
     	return ResponseEntity.ok(null);
     }
 
-    @GetMapping(value = "/saldo")
-    public ResponseEntity<BigDecimal> getDataSaldo() {
-    	BigDecimal saldo = bancoService.getSaldo();
+    @GetMapping(value = "/saldo", produces ="application/json")
+    public ResponseEntity<String> getDataSaldo() {
+    	 String saldo = bancoService.getSaldo().toString();
     	return ResponseEntity.ok(saldo);
     }
 }
