@@ -7,7 +7,5 @@
 message:
   conta:
     exchange: conta.exchange
-    queues:
-      do:
-        queueName: combos-do
-        routingKey: do
+    queueName: conta-corrente
+    routingKey: co
