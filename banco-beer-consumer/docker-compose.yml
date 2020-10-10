@@ -12,3 +12,16 @@ services:
          - RABBITMQ_PASS=guest
          - RABBITMQ_DEFAULT_VHOST=/
          - HEALTH_CHECK_CACHE=0
+
+    db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_DATABASE: 'bancobeer'
+        MYSQL_USER: 'admin'
+        MYSQL_PASSWORD: ''
+        MYSQL_ROOT_PASSWORD: ''
+      ports:
+        - '3306:3306'
+      expose:
+        - '3306'
