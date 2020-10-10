@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class RestController {
 
     @PutMapping(value = "/operacao/{tipo}/{valor}")
-    public void putDataOperacao(){
+    public void putDataOperacao(String tipo, Long valor){
 
     }
 
