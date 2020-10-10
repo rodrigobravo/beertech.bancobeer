@@ -1,7 +1,9 @@
 package com.beertech.banco.service.impl;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import com.beertech.banco.entity.TipoOperacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +23,18 @@ public class BancoServiceImpl implements BancoService {
 	}
 
 	@Override
-	public BigDecimal getSaldo() {		
-		return null;
+	public BigDecimal getSaldo() {
+		List<Operacao> listagem = operacaoRepository.findAll();
+		BigDecimal resultadoSaldo = new BigDecimal(0);
+		for (Operacao operacao:listagem) {
+			if(operacao.getTipo().equals(TipoOperacao.DEPOSITO)) {
+				resultadoSaldo = resultadoSaldo.add(operacao.getValor());
+			} else {
+				resultadoSaldo = resultadoSaldo.subtract(operacao.getValor());
+			}
+		}
+
+		return resultadoSaldo;
 	}
 
 }

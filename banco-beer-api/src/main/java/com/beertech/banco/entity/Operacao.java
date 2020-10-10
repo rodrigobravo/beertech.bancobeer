@@ -28,7 +28,9 @@ public class Operacao {
 		this.valor = valor;
 		this.tipo = tipo;
 	}
+	public Operacao() {
 
+	}
 	public Operacao(OperacaoDto operacaoDto) {
 		this.dataHora = LocalDateTime.now();
 		this.valor = operacaoDto.getValor();
