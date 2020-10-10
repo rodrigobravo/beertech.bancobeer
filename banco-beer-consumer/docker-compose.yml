@@ -12,3 +12,14 @@ services:
          - RABBITMQ_PASS=guest
          - RABBITMQ_DEFAULT_VHOST=/
          - HEALTH_CHECK_CACHE=0
+    bancp-mysql:
+        image: mysql:8.0
+        environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=bancobeerdb
+          - MYSQL_USER=admin
+          - MYSQL_PASSWORD=admin
+        ports:
+          - 3307:3307 
+         
+    

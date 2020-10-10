@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,7 @@ public class Operacao {
 	
 	private LocalDateTime dataHora;
 	private BigDecimal valor;
+	@Enumerated(EnumType.STRING)
 	private TipoOperacao tipo;
 	
 	public Operacao(BigDecimal valor, TipoOperacao tipo) {
