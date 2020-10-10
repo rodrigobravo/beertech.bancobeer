@@ -7,13 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.beertech.banco.controller.dto.OperacaoDto;
 import com.beertech.banco.entity.Operacao;
 import com.beertech.banco.service.BancoService;
 
-@org.springframework.web.bind.annotation.RestController
-public class RestController {
+@RestController
+@RequestMapping("/conta")
+public class ContaController {
 	
 	@Autowired
 	BancoService bancoService; 
@@ -24,7 +27,7 @@ public class RestController {
     	return ResponseEntity.ok(operacao);
     }
 
-    @GetMapping(value = "/saldo/")
+    @GetMapping(value = "/saldo")
     public ResponseEntity<BigDecimal> getDataSaldo() {
     	BigDecimal saldo = bancoService.getSaldo();
     	return ResponseEntity.ok(saldo);

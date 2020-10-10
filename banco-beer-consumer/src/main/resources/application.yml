@@ -1,0 +1,4 @@
+banco.url: "http://localhost:8080/conta/operacao"
+
+server:
+   port: 8081

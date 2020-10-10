@@ -12,7 +12,6 @@ services:
          - RABBITMQ_PASS=guest
          - RABBITMQ_DEFAULT_VHOST=/
          - HEALTH_CHECK_CACHE=0
-
     db:
       image: mysql:5.7
       restart: always
