@@ -1,0 +1,11 @@
+
+
+
+
+
+
+message:
+  conta:
+    exchange: conta.exchange
+    queueName: conta-corrente
+    routingKey: co
