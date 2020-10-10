@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.beertech.banco.controller.dto.OperacaoDto;
+
 @Entity
 public class Operacao {
 	@Id
@@ -22,6 +24,12 @@ public class Operacao {
 		this.dataHora = LocalDateTime.now();
 		this.valor = valor;
 		this.tipo = tipo;
+	}
+
+	public Operacao(OperacaoDto operacaoDto) {
+		this.dataHora = LocalDateTime.now();
+		this.valor = operacaoDto.getValor();
+		this.tipo = operacaoDto.getTipo();
 	}
 
 	public LocalDateTime getDataHora() {
