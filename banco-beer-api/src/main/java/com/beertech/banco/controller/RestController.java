@@ -1,35 +1,26 @@
 package com.beertech.banco.controller;
 
-
-import com.beertech.banco.entity.ContaCorrente;
-import com.beertech.banco.entity.TipoOperacao;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import java.math.BigDecimal;
 
-@Controller
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.beertech.banco.controller.dto.OperacaoDto;
+import com.beertech.banco.entity.ContaCorrente;
+
+@org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-    @PutMapping(value = "/operacao")
-    public ContaCorrente putDataOperacao(@RequestParam(value = "tipo")TipoOperacao tipo,
-                                         @RequestParam(value = "valor")BigDecimal valor){
-    return new ContaCorrente(valor, tipo);
-    }
-
-
-    @PutMapping(value = "/saldo/")
-    public void putDataSaldo(){
-
+    @PostMapping(value = "/operacao")
+    public ResponseEntity<ContaCorrente> salvaOperacao(@RequestBody OperacaoDto operacao) {
+    	return null;    	
     }
 
     @GetMapping(value = "/saldo/")
-    public void getDataSaldo(){
-
+    public ResponseEntity<BigDecimal> getDataSaldo() {
+    	return null;
     }
-
-
-
 }
