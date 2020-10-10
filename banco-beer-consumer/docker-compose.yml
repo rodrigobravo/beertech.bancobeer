@@ -20,7 +20,9 @@ services:
         MYSQL_DATABASE: 'bancobeer'
         MYSQL_USER: 'admin'
         MYSQL_PASSWORD: ''
-        MYSQL_ROOT_PASSWORD: ''
+        MYSQL_ROOT_PASSWORD: '123'
+
+
       ports:
         - '3306:3306'
       expose:
