@@ -38,26 +38,4 @@ public class RabbitConfig {
         .with(ROUTING_KEY)
         .noargs();
   }
-
-//  @Bean
-//  public TopicExchange contaExchange() {
-//    return new TopicExchange(queueProperties.getExchange(), true, false);
-//  }
-//
-//  @Bean
-//  public TopicExchange contaDeadLetterExchange() {
-//    return new TopicExchange(
-//        queueProperties.getExchange() + DEAD_LETTER_SUFFIX, true, false);
-//  }
-//
-//  @Bean
-//  AmqpAdmin admin(
-//      @Qualifier("promotionConnectionFactory") final ConnectionFactory connectionFactory) {
-//
-//    return new RabbitAdmin(connectionFactory);
-//  }
-
-
-
-
 }
