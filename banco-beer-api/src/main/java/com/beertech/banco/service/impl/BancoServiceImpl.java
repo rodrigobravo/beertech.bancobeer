@@ -13,28 +13,28 @@ import com.beertech.banco.service.BancoService;
 
 @Service
 public class BancoServiceImpl implements BancoService {
-	
-	@Autowired
-	OperacaoRepository operacaoRepository;
-	
-	@Override
-	public Operacao salvaOperacao(Operacao operacao) {
-		return operacaoRepository.save(operacao);		
-	}
 
-	@Override
-	public BigDecimal getSaldo() {
-		List<Operacao> listagem = operacaoRepository.findAll();
-		BigDecimal resultadoSaldo = new BigDecimal(0);
-		for (Operacao operacao:listagem) {
-			if(operacao.getTipo().equals(TipoOperacao.DEPOSITO)) {
-				resultadoSaldo = resultadoSaldo.add(operacao.getValor());
-			} else {
-				resultadoSaldo = resultadoSaldo.subtract(operacao.getValor());
-			}
-		}
+    @Autowired
+    OperacaoRepository operacaoRepository;
 
-		return resultadoSaldo;
-	}
+    @Override
+    public Operacao salvaOperacao(Operacao operacao) {
+        return operacaoRepository.save(operacao);
+    }
+
+    @Override
+    public BigDecimal getSaldo() {
+        List<Operacao> listagem = operacaoRepository.findAll();
+        BigDecimal resultadoSaldo = new BigDecimal(0);
+        for (Operacao operacao : listagem) {
+            if (operacao.getTipo().equals(TipoOperacao.DEPOSITO)) {
+                resultadoSaldo = resultadoSaldo.add(operacao.getValor());
+            } else {
+                resultadoSaldo = resultadoSaldo.subtract(operacao.getValor());
+            }
+        }
+
+        return resultadoSaldo;
+    }
 
 }

@@ -24,7 +24,7 @@ public class ContaController {
     @PostMapping(value = "/operacao")
     public ResponseEntity<Operacao> salvaOperacao(@RequestBody OperacaoDto operacaoDto) {
     	Operacao operacao = bancoService.salvaOperacao(new Operacao(operacaoDto));
-    	return ResponseEntity.ok(operacao);
+    	return ResponseEntity.ok(null);
     }
 
     @GetMapping(value = "/saldo")
