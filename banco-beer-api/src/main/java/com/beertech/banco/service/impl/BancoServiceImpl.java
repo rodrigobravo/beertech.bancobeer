@@ -3,7 +3,9 @@ package com.beertech.banco.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.beertech.banco.entity.ContaCorrente;
 import com.beertech.banco.entity.TipoOperacao;
+import com.beertech.banco.repository.ContaCorrenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class BancoServiceImpl implements BancoService {
 
     @Autowired
     OperacaoRepository operacaoRepository;
+
+    @Autowired
+    ContaCorrenteRepository contaCorrenteRepository;
 
     @Override
     public Operacao salvaOperacao(Operacao operacao) {
@@ -35,6 +40,12 @@ public class BancoServiceImpl implements BancoService {
         }
 
         return resultadoSaldo;
+    }
+
+    @Override
+    public ContaCorrente criaContaCorrente(ContaCorrente contaCorrente) {
+
+        return contaCorrenteRepository.save(contaCorrente);
     }
 
 }
