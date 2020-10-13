@@ -1,6 +1,7 @@
 package com.beertech.banco.controller;
 
 import com.beertech.banco.controller.dto.ContaCorrenteDto;
+import com.beertech.banco.controller.dto.TransferenciaDto;
 import com.beertech.banco.entity.ContaCorrente;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,5 +41,13 @@ public class ContaController {
     	 String saldo = "{ \"saldo\":"+ bancoService.getSaldo(hash).toString() +"}";
         JSONObject respostaSaldo= new JSONObject(saldo);
         return ResponseEntity.ok(respostaSaldo.toString());
+    }
+
+    @PostMapping(value = "/transferencia", produces = "application/json")
+    public ResponseEntity<String> transferencia(@RequestBody TransferenciaDto transferenciaDto) {
+
+            bancoService.transferencia(transferenciaDto);
+
+        return ResponseEntity.ok(null);
     }
 }

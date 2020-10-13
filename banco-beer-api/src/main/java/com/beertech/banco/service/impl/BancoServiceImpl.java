@@ -3,6 +3,7 @@ package com.beertech.banco.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.beertech.banco.controller.dto.TransferenciaDto;
 import com.beertech.banco.entity.ContaCorrente;
 import com.beertech.banco.entity.TipoOperacao;
 import com.beertech.banco.repository.ContaCorrenteRepository;
@@ -46,6 +47,18 @@ public class BancoServiceImpl implements BancoService {
     public ContaCorrente criaContaCorrente(ContaCorrente contaCorrente) {
 
         return contaCorrenteRepository.save(contaCorrente);
+    }
+
+    @Override
+    public void transferencia(TransferenciaDto transferencia) {
+
+        Operacao operacaoSaida = new Operacao(transferencia.getValor(), TipoOperacao.SAQUE, transferencia.getHashOrigem());
+        Operacao operacaoEntrada = new Operacao(transferencia.getValor(), TipoOperacao.DEPOSITO, transferencia.getHashDestino());
+        operacaoRepository.save(operacaoSaida);
+        operacaoRepository.save(operacaoEntrada);
+
+
+
     }
 
 }
