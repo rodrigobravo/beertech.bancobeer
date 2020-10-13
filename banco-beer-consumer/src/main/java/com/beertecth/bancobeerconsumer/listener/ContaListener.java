@@ -22,10 +22,13 @@ public class ContaListener {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		String json = new String(message.getBody());
-
-		OperacaoMessage operacaoMessage = objectMapper.readValue(json, OperacaoMessage.class);
-		
-		client.sendOperation(operacaoMessage);
+		if (json.contains("hashOrigem")){
+			OperacaoMessage operacaoMessage = objectMapper.readValue(json, OperacaoMessage.class);
+			client.sendTransferOperation(operacaoMessage);
+		}else{
+			OperacaoMessage operacaoMessage = objectMapper.readValue(json, OperacaoMessage.class);
+			client.sendOperation(operacaoMessage);
+		}
 
 	}
 }

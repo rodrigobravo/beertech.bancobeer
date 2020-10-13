@@ -15,6 +15,9 @@ public class ContaClient {
 
 	@Value("${banco.url}")
 	private String bancoUrl;
+
+	@Value("${transferencia.url}")
+	private String transferenciaUrl;
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -22,5 +25,10 @@ public class ContaClient {
 	public void sendOperation(OperacaoMessage message) {
 		HttpEntity<OperacaoMessage> request = new HttpEntity<>(message);
 		restTemplate.exchange(bancoUrl, HttpMethod.POST, request, OperacaoMessage.class);
+	}
+
+	public void sendTransferOperation(OperacaoMessage message) {
+		HttpEntity<OperacaoMessage> request = new HttpEntity<>(message);
+		restTemplate.exchange(transferenciaUrl, HttpMethod.POST, request, OperacaoMessage.class);
 	}
 }

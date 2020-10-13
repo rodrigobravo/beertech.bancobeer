@@ -22,6 +22,12 @@ public class OperacaoMessage {
 	@JsonProperty(required=false,value="hash")
 	private String hash;
 
+	@JsonProperty(required=false,value="hashOrigem")
+	private String hashOrigem;
+
+	@JsonProperty(required=false,value="hashDestino")
+	private String hashDestino;
+
 	@Override
 	public String toString() {
 		return "OperacaoMessage [tipo=" + tipo + ", valor=" + valor + " , hash=" + hash + "]";

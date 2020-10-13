@@ -1,4 +1,7 @@
 banco.url: "http://localhost:8080/conta/operacao"
 
+transferencia.url: "http://localhost:8080/conta/transferencia"
+
+
 server:
    port: 8081
