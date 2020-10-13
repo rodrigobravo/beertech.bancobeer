@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class ContaCorrenteDto {
     private Long id;
     private BigDecimal saldo;
-    private Integer hash;
+    private String hash;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class ContaCorrenteDto {
         this.saldo = saldo;
     }
 
-    public Integer getHash() {
+    public String getHash() {
         return hash;
     }
 
-    public void setHash(Integer hash) {
+    public void setHash(String hash) {
         this.hash = hash;
     }
 

@@ -8,6 +8,7 @@ public class OperacaoDto {
 
 	private BigDecimal valor;
 	private TipoOperacao tipo;
+	private String hash;
 	public BigDecimal getValor() {
 		return valor;
 	}
@@ -20,6 +21,12 @@ public class OperacaoDto {
 	public void setTipo(TipoOperacao tipo) {
 		this.tipo = tipo;
 	}
-	
-	
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
+	}
 }

@@ -7,6 +7,6 @@ import com.beertech.banco.entity.Operacao;
 
 public interface BancoService {
 	public Operacao salvaOperacao(Operacao operacao);
-	public BigDecimal getSaldo();
+	public BigDecimal getSaldo(String hash);
 	public ContaCorrente criaContaCorrente(ContaCorrente contaCorrente);
 }

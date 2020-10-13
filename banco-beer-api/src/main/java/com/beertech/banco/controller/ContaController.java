@@ -6,11 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.beertech.banco.controller.dto.OperacaoDto;
 import com.beertech.banco.entity.Operacao;
@@ -40,8 +36,8 @@ public class ContaController {
     }
 
     @GetMapping(value = "/saldo", produces = "application/json")
-    public ResponseEntity<String> getDataSaldo() throws JSONException {
-    	 String saldo = "{ \"saldo\":"+ bancoService.getSaldo().toString() +"}";
+    public ResponseEntity<String> getDataSaldo(@RequestParam String hash) throws JSONException {
+    	 String saldo = "{ \"saldo\":"+ bancoService.getSaldo(hash).toString() +"}";
         JSONObject respostaSaldo= new JSONObject(saldo);
         return ResponseEntity.ok(respostaSaldo.toString());
     }

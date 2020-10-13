@@ -28,8 +28,8 @@ public class BancoServiceImpl implements BancoService {
     }
 
     @Override
-    public BigDecimal getSaldo() {
-        List<Operacao> listagem = operacaoRepository.findAll();
+    public BigDecimal getSaldo(String hash) {
+        List<Operacao> listagem = operacaoRepository.findByHash(hash);
         BigDecimal resultadoSaldo = new BigDecimal(0);
         for (Operacao operacao : listagem) {
             if (operacao.getTipo().equals(TipoOperacao.DEPOSITO)) {

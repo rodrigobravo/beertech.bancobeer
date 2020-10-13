@@ -22,11 +22,14 @@ public class Operacao {
 	private BigDecimal valor;
 	@Enumerated(EnumType.STRING)
 	private TipoOperacao tipo;
+	private String hash;
 	
-	public Operacao(BigDecimal valor, TipoOperacao tipo) {
+	public Operacao(BigDecimal valor, TipoOperacao tipo, String hash) {
 		this.dataHora = LocalDateTime.now();
 		this.valor = valor;
 		this.tipo = tipo;
+		this.hash = hash;
+
 	}
 	public Operacao() {
 
@@ -35,6 +38,7 @@ public class Operacao {
 		this.dataHora = LocalDateTime.now();
 		this.valor = operacaoDto.getValor();
 		this.tipo = operacaoDto.getTipo();
+		this.hash = operacaoDto.getHash();
 	}
 
 	public LocalDateTime getDataHora() {
@@ -49,4 +53,5 @@ public class Operacao {
 		return tipo;
 	}
 
+	public String getHash() { return hash; }
 }

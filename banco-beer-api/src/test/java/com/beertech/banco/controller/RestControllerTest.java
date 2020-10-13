@@ -82,11 +82,13 @@ public class RestControllerTest {
 	@Test
 	public void buscarSaldo() throws Exception {
 		BigDecimal valorSaldo = new BigDecimal(30.0);
+		String hash = "AAAAAAAA";
 
-		when(bancoService.getSaldo()).thenReturn(valorSaldo);
+		when(bancoService.getSaldo(hash)).thenReturn(valorSaldo);
 		Integer saldoEsperado = 30;
 
-		mockMvc.perform(get(BASE_URL + "/saldo"))
+		mockMvc.perform(get(BASE_URL + "/saldo")
+				.param("hash", hash))
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.saldo", is(saldoEsperado)));
@@ -95,11 +97,13 @@ public class RestControllerTest {
 	@Test
 	public void buscarSaldo1() throws Exception {
 		BigDecimal valorSaldo = new BigDecimal(30.5);
+		String hash = "AAAAAAAA";
 
-		when(bancoService.getSaldo()).thenReturn(valorSaldo);
+		when(bancoService.getSaldo(hash)).thenReturn(valorSaldo);
 		Double saldoEsperado = 30.5;
 
-		mockMvc.perform(get(BASE_URL + "/saldo"))
+		mockMvc.perform(get(BASE_URL + "/saldo")
+				.param("hash", hash))
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.saldo", is(saldoEsperado)));
