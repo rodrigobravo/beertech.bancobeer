@@ -1,4 +1,4 @@
-beertech.bancobeer
+beertech.bancobeer.transfer
 
 
 To run project, execute in root directory: docker-compose up
@@ -7,8 +7,30 @@ After that, go to http://localhost:15672, selecr Queues and after in conta-corre
 
 
 
-To send message to queue: {"tipo": "DEPOSITO", "valor": 1, "hash": 1}
+To send message to queue: 
 
-{"tipo": "SAQUE", "valor": 1, "hash": 1}
+Deposit example
 
-{"tipo": "TRANSFERENCIA", "valor": 1, "origem": 1, "destino": 2}
+{
+    "tipo": "DEPOSITO",
+    "hash": "-97171164",
+    "valor": 75
+}
+
+Withdrawal example:
+
+{
+    "tipo": "SAQUE",
+    "hash": "-97171164",
+    "valor": 75
+}
+
+
+
+Transfer exaple:
+
+{
+    "hashOrigem": "-97171164",
+    "hashDestino": "-688003323",
+    "valor": 2
+}
